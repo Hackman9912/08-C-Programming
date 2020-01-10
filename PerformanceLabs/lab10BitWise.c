@@ -18,9 +18,16 @@ Relational Operator (e.g., >)
 int bin(n)
 {
     unsigned bitChecker; // make an unsigned variable
+    int counts = 0; // declare and set our counter
     for (bitChecker = 1 << 31; bitChecker > 0; bitChecker >>= 1) // iterate through bitchecker 
         {
             fprintf(stdout, "%s", (n & bitChecker)?"1":"0"); // print 1 or 0 based off the bitwise comparison of n and bitChecker
+            counts ++; // increment the counter
+            if (counts == 4) // if the counter hits 4 print a space and reset it to 0
+            {
+                printf(" ");
+                counts = 0;
+            }
         }
 }
 
